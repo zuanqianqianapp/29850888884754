@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!-- uc强制竖屏 -->
+        <meta name="screen-orientation" content="portrait">
+        <!-- QQ强制竖屏 -->
+        <meta name="x5-orientation" content="portrait">
+
+        <title>财神娱乐 - 下载</title>
+        <style type="text/css">
+            * { margin: 0px; padding: 0px; line-height: 0px; }
+            html, body { max-width:640px; height:auto; margin: 0px auto; padding: 0px; }
+            .down_bg { width:auto; height:auto; position:relative; }
+            .down_bg img { width:100%; }
+            .down_bg .down { width:100%; position:absolute; top:1.6%; right:0; text-align:right; }
+            .down_bg .down .logo { width:100%; }
+            .down_bg .down .anniu { width:100%; display:inline-table; margin-top: 95%; text-align: center; }
+            .down_bg .down .anniu img {width: 40%;}
+            
+            .explain { width:100%; height:auto; overflow:visible; clear:both; padding:0; margin:0; font-size:0; outline:none; }
+            .explain img { width:100%; height:100%; border:0; margin:0; padding:0; line-height:0px; outline:none; }
+
+            /* 按钮动画效果 */
+            .anniu{
+                -webkit-animation: free_download 0.7s linear alternate infinite;
+                animation: free_download 0.7s linear alternate infinite;
+            }
+            @-webkit-keyframes free_download{
+                0%{-webkit-transform:scale(0.9);}
+                100%{-webkit-transform:scale(1);}
+            }
+            @keyframes free_download{
+                0%{transform:scale(0.9);}
+                100%{transform:scale(1);}
+            }
+
+            /*@media screen and (max-height: 737px) { .down {width:385px; margin-top: 248px;} }
+            @media screen and (max-height: 605px) { .down {width:260px;} }
+            @media screen and (max-height: 600px) { .down {width:350px; margin-top: 175px;} } 
+            @media screen and (max-height: 520px) { .down {width:340px; margin-top: 166px;} } 
+            @media screen and (max-height: 445px) { .down {width:300px; margin-top: 148px;} } */
+
+            /*微信下载提示*/
+            .tip { position: fixed; width: 100%; z-index: 1000; margin-top: 0px }
+            .tip .text { background-color: rgba(0,0,0,0.8); color: #FFFFFF; padding: 12px 15px 10px 15px; line-height: 21px; font-size: 13px; margin: 7px; border-radius: 5px; }
+            .tip span { color: #FFFF00; padding: 0 3px; }
+
+            #weixin-tip { display:none; position:fixed; left:0; top:0; background:rgba(0,0,0,0.9); filter:alpha(opacity=100); width:100%; height:100%; z-index:1000; }
+            #weixin-tip p { text-align:center; margin-top:5%; padding:0 5%; position:relative; }
+            #weixin-tip .close { color:#fff; padding:0px; }
+            .qq { width:67px; height:67px; position:fixed; bottom:50px; right:10px; z-index:10000; }
+            .ios { display: none;}
+        </style>
+        <script src="images/jquery.min.js?v=1.9.1" type="text/javascript"></script>
+        <script type="text/javascript">
+        var u = navigator.userAgent;
+        // 判断微信浏览器
+        var is_weixin = (function() {
+            var ua = u.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        })();
+        //ios终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+        function showWxTip() {
+            if (is_weixin) {
+                showWeixinTip();
+            }
+        }
+        function showWeixinTip() {
+            var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+        
+            var tip = document.getElementById('weixin-tip');
+            var close = document.getElementById('close');
+            //
+            tip.style.height = winHeight + 'px';
+            tip.style.display = 'block';
+        }
+        function closeWXTip() {
+            var tip = document.getElementById('weixin-tip');
+            tip.style.display = 'none';
+        }
+        </script>
+
+    </head>
+    <body>
+        <div id="weixin-tip" onclick="javascript:closeWXTip();"><p><img src="images/live_weixin_ltdn.png" style="width:100%" alt="微信打开" id="close"/></p></div> 
+
+        <div class="down_bg">
+            <img src="images/cais_01.png" />
+            <div class="down">
+                <!-- <img class="logo" src="images/logo.png" />
+                <a class="anniu" href="javascript:void(0);" onclick="openurl('itms-services://?action=download-manifest&url=https://ltdn.oss-cn-hangzhou.aliyuncs.com/ltdn/ltdn.txt');"><img src="images/btn_ios.png" /></a> -->
+                <div id="downloadButton" class="anniu" href="javascript:void(0);">
+                    <img src="images/cais-btn.png" />
+                </div>
+            </div>
+            <!-- <div class="text"><img src="img_ltdn/text.png" /></div> -->
+        </div>
+        <div class="explain">
+            <!-- <img src="images/01.png" /> -->
+            <img src="images/cais_02.png" />
+            <img src="images/cais_032.png" class="and" />
+            <img src="images/cais_03.png" class="ios" />
+            <img src="images/cais_04.png" class="ios" />
+        </div>
+    </body>
+    <script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function($) {//alert($(window).width() +"----"+ $(window).height());
+            if (isiOS) {
+                $('.and').hide();
+                $('.ios').show();
+            } else {
+                $('.and').show();
+                $('.ios').hide();
+            }
+            var code = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+            new OpenInstall({
+                /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+                appKey : "w0d6f4", //impowe
+                /*可选参数，自定义android平台的apk下载文件名，只有apk在openinstall托管时才有效；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+                //apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+                /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+                //preferWakeup:true,
+                /*自定义遮罩的html*/
+                //mask:function(){
+                //  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+                //},
+                /*openinstall初始化完成的回调函数，可选*/
+                onready : function() {
+                    var m = this, button = document.getElementById("downloadButton");
+                    if (is_weixin) {
+                        showWeixinTip();
+                    } else {
+                        /*在app已安装的情况尝试拉起app*/
+                        m.schemeWakeup();
+                    }
+                    // console.log(m);
+                    button.style.visibility = "visible";
+                    /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+                    button.onclick = function() {
+                        if (is_weixin) {
+                            showWeixinTip();
+                        } else {
+                            m.wakeupOrInstall();
+                        }
+                        return false;
+                    }
+                }
+            }, { inviteCode: code.code });
+        //document.body.addEventListener('touchmove', function (event) {
+        //  event.preventDefault();
+        //}, false);
+
+        //window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+        //function hengshuping() {
+        //  location.reload();
+        //  if (window.orientation == 90 || window.orientation == -90) {
+        //      // $(".logo").text('横屏');
+        //  } else {
+        //      // $(".logo").text('竖屏');//竖屏
+        //  }
+        //}
+
+    });
+
+    </script>
+</html>
